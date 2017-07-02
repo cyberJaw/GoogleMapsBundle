@@ -45,7 +45,10 @@ If your assets is not installed after installation run
 This bundle contains a new FormType called GoogleMapType which can be used in your forms like so:
 
 ```php
-$builder->add('latlng', 'oh_google_maps');
+use CyberJaw/GoogleMaps/Form/Type;
+    
+
+$builder->add('googleMaps', GoogleMapsType::class);
 ```
 
 # Options

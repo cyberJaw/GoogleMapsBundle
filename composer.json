@@ -10,12 +10,12 @@
   ],
   "autoload": {
     "psr-4": {
-      "cyberjaw\\GoogleMapsBundle\\": ""
+      "CyberJaw\\GoogleMapsBundle\\": ""
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "cyberjaw\\GoogleMapsBundle\\": ""
+      "CyberJaw\\GoogleMapsBundle\\": ""
     }
   },
   "require": {

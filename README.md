@@ -2,13 +2,13 @@
 
 Symfony bundle for use google maps in your form
 
-#Installation
+# Installation
 This bundle is compatible with Symfony >= 2.8
 ```
 composer require cyberjaw/google-maps-bundle
 ```
 
-#Getting Started
+# Getting Started
 
 First register the bundle in your ``AppKernel.php``
 
@@ -41,14 +41,14 @@ If your assets is not installed after installation run
 //Symfony 3.*
     php bin/console assets:install
 ```
-##Usage
+# Usage
 This bundle contains a new FormType called GoogleMapType which can be used in your forms like so:
 
 ```php
 $builder->add('latlng', 'oh_google_maps');
 ```
 
-##Options
+# Options
 
 ```php
 array(
@@ -74,12 +74,12 @@ array(
 )
 ```
 
-##Features
+# Features
 
 * Getting only map
 * Make custom map template
 * Integrate another google maps api functions
 
-## Authors
+# Authors
 
 * **Alexander Dimitrov** - *Initial work* - [cyberJaw](https://github.com/cyberJaw)

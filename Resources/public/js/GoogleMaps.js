@@ -1,6 +1,12 @@
 function initMap() {
+    var lat = $('[data-name="lat"]').val();
+    var lng = $('[data-name="lng"]').val();
+    if (lat !== '' && lng !== '') {
+        default_lat = lat;
+        default_lng = lng;
+    }
     var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: default_lat, lng: default_lng},
+        center: {lat: parseFloat(default_lat), lng: parseFloat(default_lng)},
         zoom: 13,
         styles: map_template,
         mapTypeId: map_type
@@ -25,7 +31,7 @@ function initMap() {
         map: map,
         anchorPoint: new google.maps.Point(0, -29),
         animation: google.maps.Animation.DROP,
-        position: {lat: default_lat, lng: default_lng}
+        position: {lat: parseFloat(default_lat), lng: parseFloat(default_lng)}
     });
     marker.addListener('click', function () {
         if (marker.getAnimation() !== null) {
@@ -56,10 +62,10 @@ function initMap() {
         }
         marker.setPosition(place.geometry.location);
         var latlng = marker.getPosition().toJSON();
-        $('#google_maps_latitude').val(latlng['lat'])
-        $('#google_maps_longitude').val(latlng['lng']);
-        $('#google_maps_city').val(place.vicinity);
-        $('#google_maps_address').val(place.formatted_address);
+        $('[data-name="lat"]').val(latlng['lat'])
+        $('[data-name="lng"]').val(latlng['lng']);
+        $('[data-name="city"]').val(place.vicinity);
+        $('[data-name="address"]').val(place.formatted_address);
         marker.setVisible(true);
         var address = '';
         if (place.address_components) {

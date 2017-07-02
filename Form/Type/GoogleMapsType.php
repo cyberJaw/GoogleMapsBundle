@@ -24,17 +24,25 @@ class GoogleMapsType extends AbstractType
         parent::buildForm($builder, $options);
 
         //Default fields
-        $builder->add($options['lat_name'], $options['type'], array_merge($options['lat_options'], $options['options']));
-        $builder->add($options['lng_name'], $options['type'], array_merge($options['lng_options'], $options['options']));
+        $builder->add($options['lat_name'], $options['lat_type'], array_merge($options['lat_options'], $options['options'], [
+            'attr' => ['data-name' => 'lat']
+        ]));
+        $builder->add($options['lng_name'], $options['lng_type'], array_merge($options['lng_options'], $options['options'], [
+            'attr' => ['data-name' => 'lng']
+        ]));
 
         //Optional city field
         if (!empty($options['city'])) {
-            $builder->add($options['city_name'], $options['type'], array_merge($options['city_options'], $options['options']));
+            $builder->add($options['city_name'], $options['type'], array_merge($options['city_options'], $options['options'], [
+                'attr' => ['data-name' => 'city']
+            ]));
         }
 
         //Optional address field
         if (!empty($options['address'])) {
-            $builder->add($options['address_name'], $options['type'], array_merge($options['address_options'], $options['options']));
+            $builder->add($options['address_name'], $options['type'], array_merge($options['address_options'], $options['options'], [
+                'attr' => ['data-name' => 'address']
+            ]));
         }
     }
 
@@ -44,7 +52,9 @@ class GoogleMapsType extends AbstractType
 
         $resolver->setDefaults([
             'type' => TextType::class,      //Form type
-            'options' => [],                // Form options
+            'lat_type' => TextType::class,  //Latitude form type
+            'lng_type' => TextType::class,  //Longitude form type
+            'options' => [],                //Form options
             'lat_options' => [],            //Latitude field options
             'lng_options' => [],            //Longitude field options
             'city_options' => [],           //City field options
@@ -61,7 +71,8 @@ class GoogleMapsType extends AbstractType
             'address' => true,              //Address field status
             'jquery' => true,               //Enable/Disable jQuery
             'map_template' => 'styled',      //Enter template name (Options: false = default, 'night' = Night template, 'styled' = Styled map template)
-            'map_type' => 'terrain'         //Set map type (Options: 'roadmap' and 'terrain')
+            'map_type' => 'terrain',        //Set map type (Options: 'roadmap' and 'terrain')
+            'input_placeholder' => 'Enter location', //Set placeholder to search location input
         ]);
     }
 
@@ -80,6 +91,7 @@ class GoogleMapsType extends AbstractType
         $view->vars['jquery'] = $options['jquery'];
         $view->vars['map_template'] = $options['map_template'];
         $view->vars['map_type'] = $options['map_type'];
+        $view->vars['input_placeholder'] = $options['input_placeholder'];
     }
 
     public function getParent()

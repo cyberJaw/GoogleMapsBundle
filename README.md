@@ -74,6 +74,8 @@ class GoogleMaps
 ```php
 array(
     'type' => TextType::class,      //Form type
+    'lat_type' => TextType::class,  //Latitude form type
+    'lng_type' => TextType::class,  //Longitude form type
     'options' => [],                //Form options
     'lat_options' => [],            //Latitude field options
     'lng_options' => [],            //Longitude field options
@@ -90,8 +92,9 @@ array(
     'city' => true,                 //City field status
     'address' => true,              //Address field status
     'jquery' => true,               //Enable/Disable jQuery
-    'map_template' => 'styled',     //Enter template name (Options: false = default, 'night' = Night template, 'styled' = Styled map template)
-    'map_type' => 'terrain'         //Set map type (Options: 'roadmap' and 'terrain')
+    'map_template' => 'styled',      //Enter template name (Options: false = default, 'night' = Night template, 'styled' = Styled map template)
+    'map_type' => 'terrain',        //Set map type (Options: 'roadmap' and 'terrain')
+    'input_placeholder' => 'Enter location', //Set placeholder to search location input
 )
 ```
 

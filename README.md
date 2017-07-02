@@ -99,6 +99,7 @@ array(
 * Getting only map
 * Make custom map template
 * Integrate another google maps api functions
+* Added constraints
 
 # Authors
 

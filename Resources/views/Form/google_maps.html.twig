@@ -1,0 +1,36 @@
+{% block google_maps_widget %}
+    {% if jquery %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% endif %}
+    <input id="pac-input" type="text" placeholder="Enter a location">
+    <div id="map" style="width: 100%; height: 400px;"></div>
+    {#<div id="default_lat" value="{{ default_lat }}"></div>#}
+    {#<div id="default_lng" value="{{ default_lng }}">#}
+    <div id="infowindow-content">
+        <script>
+            var default_lat = {{ default_lat }};
+            var default_lng = {{ default_lng }};
+            var map_template = '';
+            var map_type = '{{ map_type }}';
+                $(document).ready(function () {
+                    if ($('#pac-input').val() === '') {
+                        $('#place-icon').hide()
+                    }
+                })
+        </script>
+        <img src="" width="16" height="16" id="place-icon">
+        <span id="place-name" class="title"></span><br>
+        <span id="place-address"></span>
+    </div>
+
+    {% if map_template %}
+        {% if map_template == 'night' %}
+            <script src="{{ asset('bundles/googlemaps/js/google_maps_night.js') }}"></script>
+        {% elseif map_template == 'styled' %}
+            <script src="{{ asset('bundles/googlemaps/js/google_maps_styled.js') }}"></script>
+        {% endif %}
+    {% endif %}
+    <script src="{{ asset('bundles/googlemaps/js/GoogleMaps.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&libraries=places&callback=initMap"
+            async defer></script>
+{% endblock google_maps_widget %}

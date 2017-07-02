@@ -1,0 +1,44 @@
+{
+  "name": "cyberjaw/google-maps-bundle",
+  "license": "MIT",
+  "type": "symfony-bundle",
+  "authors": [
+    {
+      "name": "Alexander Dimitrov",
+      "email": "alexandar.dimitrov11@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "cyberjaw\\GoogleMapsBundle\\": ""
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "cyberjaw\\GoogleMapsBundle\\": ""
+    }
+  },
+  "require": {
+    "php": ">=5.6",
+    "symfony/framework-bundle": "^2.7|^3.0"
+  },
+  "scripts": {
+    "symfony-scripts": [
+      "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+    ],
+    "post-install-cmd": [
+      "@symfony-scripts"
+    ],
+    "post-update-cmd": [
+      "@symfony-scripts"
+    ]
+  },
+  "extra": {
+    "branch-alias": null
+  }
+}

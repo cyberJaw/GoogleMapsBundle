@@ -6,7 +6,7 @@
  * Time: 1:57 PM
  */
 
-namespace CyberJaw\GoogleMapsBundle\DependancyInjection;
+namespace CyberJaw\GoogleMapsBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;

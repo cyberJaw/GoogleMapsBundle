@@ -6,7 +6,7 @@
  * Time: 1:56 PM
  */
 
-namespace CyberJaw\GoogleMapsBundle\DependancyInjection;
+namespace CyberJaw\GoogleMapsBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

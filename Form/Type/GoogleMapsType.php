@@ -24,23 +24,23 @@ class GoogleMapsType extends AbstractType
         parent::buildForm($builder, $options);
 
         //Default fields
-        $builder->add($options['lat_name'], $options['lat_type'], array_merge($options['lat_options'], $options['options'], [
+        $builder->add('lat', $options['lat_type'], array_merge($options['lat_options'], $options['options'], [
             'attr' => ['data-name' => 'lat']
         ]));
-        $builder->add($options['lng_name'], $options['lng_type'], array_merge($options['lng_options'], $options['options'], [
+        $builder->add('lng', $options['lng_type'], array_merge($options['lng_options'], $options['options'], [
             'attr' => ['data-name' => 'lng']
         ]));
 
         //Optional city field
         if (!empty($options['city'])) {
-            $builder->add($options['city_name'], $options['type'], array_merge($options['city_options'], $options['options'], [
+            $builder->add('city', $options['type'], array_merge($options['city_options'], $options['options'], [
                 'attr' => ['data-name' => 'city']
             ]));
         }
 
         //Optional address field
         if (!empty($options['address'])) {
-            $builder->add($options['address_name'], $options['type'], array_merge($options['address_options'], $options['options'], [
+            $builder->add('address', $options['type'], array_merge($options['address_options'], $options['options'], [
                 'attr' => ['data-name' => 'address']
             ]));
         }
@@ -59,10 +59,6 @@ class GoogleMapsType extends AbstractType
             'lng_options' => [],            //Longitude field options
             'city_options' => [],           //City field options
             'address_options' => [],        //Address field options
-            'lat_name' => 'latitude',       //Latitude field name
-            'lng_name' => 'longitude',      //Longitude field name
-            'city_name' => 'city',          //City field name
-            'address_name' => 'address',    //Address field name
             'map_width' => '100%',          //Map box width
             'map_height' => '400px',        //Map box height
             'default_lat' => '42.69',       //Default latitude start
@@ -80,10 +76,6 @@ class GoogleMapsType extends AbstractType
     {
         parent::finishView($view, $form, $options);
 
-        $view->vars['lat_name'] = $options['lat_name'];
-        $view->vars['lng_name'] = $options['lng_name'];
-        $view->vars['city_name'] = $options['city_name'];
-        $view->vars['address_name'] = $options['address_name'];
         $view->vars['map_width'] = $options['map_width'];
         $view->vars['map_height'] = $options['map_height'];
         $view->vars['default_lat'] = $options['default_lat'];
@@ -92,6 +84,8 @@ class GoogleMapsType extends AbstractType
         $view->vars['map_template'] = $options['map_template'];
         $view->vars['map_type'] = $options['map_type'];
         $view->vars['input_placeholder'] = $options['input_placeholder'];
+        $view->vars['city'] = $options['city'];
+        $view->vars['address'] = $options['address'];
     }
 
     public function getParent()

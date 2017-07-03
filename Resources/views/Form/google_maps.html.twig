@@ -2,8 +2,19 @@
     {% if jquery %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     {% endif %}
-    <input id="pac-input" type="text" placeholder="{{ input_placeholder }}">
+    <div>
+        <input id="pac-input" type="text" placeholder="{{ input_placeholder }}"><br /><br />
+    </div>
     <div id="map" style="width: {{ map_width }}; height: {{ map_height }};"></div>
+
+    {{ form_row(form.lat) }}
+    {{ form_row(form.lng) }}
+    {% if city %}
+        {{ form_row(form.city) }}
+    {% endif %}
+    {% if address %}
+        {{ form_row(form.address) }}
+    {% endif %}
     <div id="infowindow-content">
         <script>
             var default_lat = {{ default_lat }};
@@ -31,6 +42,6 @@
         {% endif %}
     {% endif %}
     <script src="{{ asset('bundles/googlemaps/js/GoogleMaps.js') }}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&libraries=places&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key() }}&libraries=places&callback=initMap"
             async defer></script>
 {% endblock google_maps_widget %}

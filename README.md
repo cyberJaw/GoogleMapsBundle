@@ -28,10 +28,11 @@ To enable template and set your Google Maps API key, enter this to your ``config
 ## Twig Configuration
  
 twig:
-    globals:
-        google_maps_api_key: 'YOUR_API_KEY'
     form_themes:
         - 'GoogleMapsBundle:Form:google_maps_layout.html.twig'
+        
+google_maps:
+    api_key: 'YOUR_API_KEY'
 ```
 
 If your assets is not installed after installation run
